@@ -96,10 +96,11 @@ export default {
                 v-for="(item, index) in prof_list"
                 :key="index"
                 class="list-group-item">
-              {{ index + 1 }}.
-              <span class="green"><i>Наименование:</i> </span> <b>{{ item.name }}</b>
+              <span class="green">{{ index + 1 }}</span>.
+              <span class="green"><i>Наименование:</i> </span>  <span style="color: #2c3e50;"><b>{{ item.name }}</b></span>
+
               <br>
-              <span class="green"><i>&nbsp;&nbsp;&nbsp;&nbsp;Примечание:</i> </span> {{ item.description }}
+              <span class="green"><i>&nbsp;&nbsp;&nbsp;&nbsp;Примечание:</i> </span> <span style="color: #2c3e50;"><b>{{ item.description }}</b></span>
 
 
             </li>

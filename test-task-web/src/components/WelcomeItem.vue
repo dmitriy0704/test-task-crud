@@ -20,6 +20,7 @@
   justify-content: center;
   position: relative;
   width: 1024px;
+  background-color: #f2f2f2;
 }
 
 .details {

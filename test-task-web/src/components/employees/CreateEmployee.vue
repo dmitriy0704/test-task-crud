@@ -53,6 +53,11 @@ export default {
           .catch(error => {
           });
     },
+
+    refreshView(){
+      this.getProfessionList();
+      this.getDepartmentList();
+    }
   },
 
   beforeMount() {
@@ -89,7 +94,7 @@ export default {
           </div>
 
           <div class="form-group">
-            <div> Профессия:</div>
+            <div><label> Профессия:</label></div>
             <select v-model="employee.profession">
               <option disabled value="">Выберете профессию</option>
               <option v-for="(item, index) in prof_list"
@@ -107,7 +112,7 @@ export default {
                 name="profession"/>
           </div>
           <div class="form-group">
-            <div> Отдел:</div>
+            <div><label>Отдел:</label></div>
             <select v-model="employee.department">
               <option disabled value="">Выберете отдел</option>
               <option v-for="(item, index) in dept_list"
@@ -162,16 +167,19 @@ export default {
                 v-for="(item, index) in empl_list"
                 :key="index"
                 class="list-group-item">
-              {{ index + 1 }}.
+              <span class="green">{{ index + 1 }}</span>.
 
               <span class="green"><i>ФИО:</i> </span>
-                      <b>{{ item.fio }}</b> <br>
+                          <span style="color: #2c3e50;"><b>{{ item.fio }}</b></span> <br>
+
               <span class="green"><i>&nbsp;&nbsp;&nbsp;&nbsp;Профессия:</i></span>
-                      <b>{{item.profession }}</b><br>
-              <span class="green"><i>&nbsp;&nbsp;&nbsp;&nbsp;Отдел:</i></span><b>
-                      {{item.department }}</b><br>
+                          <span style="color: #2c3e50"><b>{{item.profession }}</b></span>  <br>
+
+              <span class="green"><i>&nbsp;&nbsp;&nbsp;&nbsp;Отдел:</i></span>
+                          <span style="color: #2c3e50"><b>{{item.department }}</b></span>   <br>
+
               <span class="green"><i>&nbsp;&nbsp;&nbsp;&nbsp;Примечание:</i></span>
-                      <b>{{ item.description }}</b>
+                          <span style="color: #2c3e50"> <b>{{ item.description }}</b> </span>
 
 
             </li>
