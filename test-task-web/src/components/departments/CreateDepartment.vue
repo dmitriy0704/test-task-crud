@@ -8,6 +8,7 @@ export default {
     return {
       dept_list: {},
       dept: {
+        parentDepartmentName: '',
         name: '',
         description: ''
       },
@@ -27,6 +28,7 @@ export default {
           .then(response => {
             this.getDepartmentList();
             this.isSaving = false
+            this.dept.parentDepartmentName = ""
             this.dept.name = ""
             this.dept.description = ""
             return response
@@ -49,9 +51,26 @@ export default {
         <h3 class="green">Создание отдела</h3>
       </div>
       <form>
+
         <div class="form-group">
           <div>
-            <label htmlFor="name">Наименование</label>
+            <label htmlFor="name">Отдел</label>
+          </div>
+          <div>
+            <input
+                v-model="dept.parentDepartmentName"
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"/>
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          <div>
+            <label htmlFor="name">Подразделение</label>
           </div>
           <div>
             <input
@@ -101,11 +120,12 @@ export default {
                 v-for="(item, index) in dept_list"
                 :key="index"
                 class="list-group-item">
-              <span class="green">{{ index + 1 }}</span>.
+              <span class="green">{{ index + 1 }}.</span>
 
-              <span class="green"><i>Наименование:</i></span>   <span style="color: #2c3e50"><b>{{ item.name }}</b></span>     <br>
+              <span class="green"><i>Отдел:</i></span>   <span style="color: #2c3e50"><b>{{ item.parentDepartmentName }}</b></span><br>
+              <span class="green" style="margin-left: 30px" ><i>Подразделение:</i></span>   <span style="color: #2c3e50"><b>{{ item.name }}</b></span>     <br>
 
-              <span class="green"> <i>&nbsp;&nbsp;&nbsp;&nbsp;Примечание:</i> </span>   <span style="color: #2c3e50"><b> {{ item.description }} </b></span>
+              <span class="green"> <i>Примечание:</i> </span>   <span style="color: #2c3e50"><b> {{ item.description }} </b></span>
             </li>
           </ul>
         </div>

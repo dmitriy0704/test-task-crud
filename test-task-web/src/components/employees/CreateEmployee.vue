@@ -167,7 +167,7 @@ export default {
                 v-for="(item, index) in empl_list"
                 :key="index"
                 class="list-group-item">
-              <span class="green">{{ index + 1 }}</span>.
+              <span class="green">{{ index + 1 }}.</span>
 
               <span class="green"><i>ФИО:</i> </span>
                           <span style="color: #2c3e50;"><b>{{ item.fio }}</b></span> <br>
